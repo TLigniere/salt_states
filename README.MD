@@ -69,4 +69,4 @@ each time prometheus.sls is triggered, the node_exporters targets are deleted th
 That's the way i found to avoid duplication in my targets who would stop my prometheus
 
 QUICK SUMMARY :
-IF ITS 127.0.0.1 THEN IT NEEDS TO BE CHANGED IF ITS localhost DONT TOUCH IT
+ the IP address in IPaddress.sls and haproxy.cnf should be the only ones that you need to change
