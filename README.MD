@@ -67,3 +67,5 @@ if you want to create new alerts or delete the olds ones then change /salt/prome
 Change the address inside prometheus.yml
 I think they're is a way to automate them with the pillar but i didn't found anything so dunno
 
+QUICK SUMMARY :
+IF ITS 127.0.0.1 THEN IT NEEDS TO BE CHANGED IF ITS localhost DONT TOUCH IT
