@@ -36,25 +36,25 @@ scrape_configs:
       - targets: ["localhost:9100"]
         labels:
           hostname: "MON-server-Node_exporter"
-      - targets: ["171.33.122.57:9100"]
+      - targets: ["127.0.0.1:9100"]
         labels:
           hostname: "LAB-server-Node_exporter"
-      - targets: ["171.33.121.29:9100"]
+      - targets: ["127.0.0.1:9100"]
         labels:
           hostname: "SQL-server-Node_exporter"
-      - targets: ["171.33.89.178:9100"]
+      - targets: ["127.0.0.1:9100"]
         labels:
           hostname: "WP-server-Node_exporter"
-      - targets: ["171.33.119.249:9100"]
+      - targets: ["127.0.0.1:9100"]
         labels:
           hostname: "WP2-server-Node_exporter"
-      - targets: ["148.253.117.165:9100"]
+      - targets: ["127.0.0.1:9100"]
         labels:
           hostname: "HAP-server-Node_exporter"
-      - targets: ["80.247.4.162:9100"]
+      - targets: ["127.0.0.1:9100"]
         labels:
           hostname: "SQL2-server-Node_exporter"
-      - targets: ["217.75.167.32:9100"]
+      - targets: ["127.0.0.1:9100"]
         labels:
           hostname: "DOC-server-Node_exporter"
 
