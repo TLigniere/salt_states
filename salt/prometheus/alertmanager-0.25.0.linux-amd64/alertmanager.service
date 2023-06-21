@@ -1,0 +1,14 @@
+[Unit]
+Description=Alertmanager for prometheus
+After=network-online.target
+[Service]
+Restart=always
+User=alertmanager
+Group=alertmanager
+ExecStart=/usr/local/bin/alertmanager --config.file=/usr/local/bin/alertmanager.yml --storage.path=/data/alertmanager            
+ExecReload=/bin/kill -HUP $MAINPID
+TimeoutStopSec=20s
+SendSIGKILL=no
+
+[Install]
+WantedBy=multi-user.target

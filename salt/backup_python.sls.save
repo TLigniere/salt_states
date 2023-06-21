@@ -1,0 +1,61 @@
+
+python-pkg:
+  pkg.installed:
+    - name: python3
+
+python-mysql-connector:
+  pip.installed:
+    - pkgs: 
+      - mysql-connector
+      - boto3
+      - boto
+      - os
+      - subprocess
+
+python-f:
+  file.directory:
+    - name: /opt/python
+    - mode: 755
+
+backup_sql-d:
+  file.directory:
+    - name: /usr/local/bin/backup_sql
+
+backup_database.py:
+  file.managed:
+    - source: salt://backup_python/backup_database.py
+    - name: /opt/python/backup_database.py
+
+daily_backup:
+  cron.present:
+    - name: "python3 /opt/python/import os
+import subprocess
+
+# Set the MySQL user and password
+MYSQL_USER = "username"
+MYSQL_PASSWORD = "password"
+
+# Set the name of the database to be backed up
+DATABASE_NAME = "database_name"
+
+# Set the directory for the backup files
+BACKUP_DIRECTORY = "/path/to/backup/directory"
+
+# Set the current date and time
+NOW = os.strftime("%Y-%m-%d-%H-%M-%S")
+
+# Export the database to a SQL file
+subprocess.run(
+    [
+        "mysqldump",
+        "-u",
+        MYSQL_USER,
+        "-p" + MYSQL_PASSWORD,
+        DATABASE_NAME,
+        ">",
+        BACKUP_DIRECTORY + "/" + DATABASE_NAME + "-" + NOW + ".sql",
+    ]
+)
+
+# Compress the SQL file using gzip
+subprocess.run(["gzip", BACKUP_DIRECTORY + "/" + DATABASE_NAME + "-" + NOW + ".sql"])

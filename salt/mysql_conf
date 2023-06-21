@@ -1,0 +1,12 @@
+
+
+#Config for a DB
+mysql.host: 'localhost'
+mysql.port: 3306
+mysql.user: 'root'
+mysql.pass: ''
+mysql.db: 'mysql'
+#You might need to change the path to the unix_socket
+mysql.unix_socket: '/run/mysqld/mysqld.sock'
+mysql.charset: 'utf8'
+

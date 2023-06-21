@@ -1,0 +1,12 @@
+[Unit]
+Description=Prometheus monitoring system
+Wants=network-online.target
+After=network-online.target
+[Service]
+User=prometheus
+Group=prometheus
+Type=simple
+ExecStart=/usr/local/bin/prometheus  --config.file /usr/local/bin/prometheus.yml  --storage.tsdb.path "/data/prometheus" 
+Restart=Always
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,27 @@
+route:
+  group_by: ['alertname']
+  group_wait: 10s
+  group_interval: 10s
+  repeat_interval: 1d
+  receiver: 'email'
+receivers:
+  - name: 'web.hook'
+    webhook_configs:
+      - url: 'http://127.0.0.1:5001/'
+
+
+  - name: "email"
+    email_configs:
+    - to: "timothee.ligniere@gmail.com"
+      from: "alertmanager.tl@gmail.com"
+      smarthost: smtp.gmail.com:587
+      auth_username: "alertmanager.tl@gmail.com"
+      auth_identity: "alertmanager.tl@gmail.com"
+      auth_password: "bradomhlgstsqxgo"
+      send_resolved: True
+inhibit_rules:
+  - source_match:
+      severity: 'critical'
+    target_match:
+      severity: 'warning'
+    equal: ['alertname', 'dev', 'instance']
