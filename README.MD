@@ -8,11 +8,13 @@ minion_id is the id the minion will have, so you better change for your comfort
 without config, the minions will search the master trough ssh so change the line where you can see master : salt to master : <salt master IP>
 
 ###################### GENERAL SETUP #################################
-These files are incomplete for the whole setup;
+These files are incomplete for the whole setup or straight up useless for a completely local configuration so check them quickly (most of the time the names of the files speaks for themselves but still);
 you'll need to download wordpress and prometheus file;
 the sls may refuse your files if the version are different;
 
+
 The IPs of the machines need to be edited in the pillar "IPaddress";
+
 
 The redundancy system on the mariadb (master - master) is not configured in the states, you'll either need to improve it or to do it manually;
 
@@ -59,3 +61,9 @@ The file to change is salt/prometheus/alertmanager-0.25.0.linux-amd64/alertmanag
 
 if you want to create new alerts or delete the olds ones then change /salt/prometheus/rules_prometheus.yml
 (quick tips: verify your expr on your prometheus website)
+
+################# PROMETHEUS ################
+
+Change the address inside prometheus.yml
+I think they're is a way to automate them with the pillar but i didn't found anything so dunno
+
