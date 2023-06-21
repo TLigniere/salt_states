@@ -64,8 +64,9 @@ if you want to create new alerts or delete the olds ones then change /salt/prome
 
 ################# PROMETHEUS ################
 
-Change the address inside prometheus.yml
-I think they're is a way to automate them with the pillar but i didn't found anything so dunno
+Change the address inside IPaddress.sls inside the pillars, the state will add automatically every host;
+each time prometheus.sls is triggered, the node_exporters targets are deleted then reconfigured each time,
+That's the way i found to avoid duplication in my targets who would stop my prometheus
 
 QUICK SUMMARY :
 IF ITS 127.0.0.1 THEN IT NEEDS TO BE CHANGED IF ITS localhost DONT TOUCH IT
