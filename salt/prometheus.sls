@@ -47,6 +47,21 @@ prometheus-u:
     - keep_source: False
     - mode: 744
 
+node_exporter targets of prometheus.yml:
+  file.append:
+    - name: /usr/local/bin/prometheus.yml
+    - text: |
+       "#node exporter stuff"
+         - job_name: "node_exporter"
+
+           static_configs:
+
+        {% for machines in salt['pillar.get']('EveryIP') %}
+             - targets: ["{{ machines["IP"] }}:9100"]
+               labels:
+                 hostname: "{{ machines["name"] }}-Node_exporter"
+        {% endfor %}
+
 /usr/local/bin/rules_prometheus.yml:
   file.managed:
     - source: salt://prometheus/prometheus-2.44.0.linux-amd64/rules_prometheus.yml
