@@ -1,4 +1,5 @@
 Download salt-master on this machine and salt-minion on the ones you want to control 
+Put all the files of this repo inside /srv
 
 You must edit the file in /etc/salt
 it will either be master or minion
@@ -6,6 +7,7 @@ both of them are the configuration files
 minion_id is the id the minion will have, so you better change for your comfort
 without config, the minions will search the master trough ssh so change the line where you can see master : salt to master : <salt master IP>
 
+###################### GENERAL SETUP #################################
 These files are incomplete for the whole setup;
 you'll need to download wordpress and prometheus file;
 the sls may refuse your files if the version are different;
@@ -28,9 +30,10 @@ Remember the ports :
 3000 for Grafana
 9090 for Prometheus
 9100 for Node_exporters
+5001 for alertmanager
 4505/4506 for Salt (ports open only on the master)
 
-for grafana here's 5 useful query :
+#################### GRAFANA ########################
 
 CPU Usage :
 (1 - avg(irate(node_cpu_seconds_total{mode="idle"}[1m])) by (hostname)) * 100
@@ -47,3 +50,12 @@ up{job="node_exporter"}
 Service on a machine up (for example, this one checks on the target WP-server if apache is running) :
 node_systemd_unit_state{hostname="WP-server-Node_exporter",name="apache2.service",state="active"}==1
 
+############# ALERTMANAGER ################
+
+you'll need to change the email of the receiver or i will be the one who receives everything,
+i don't mind sharing the gmail account that sends the alert, just don't fuck it up
+
+The file to change is salt/prometheus/alertmanager-0.25.0.linux-amd64/alertmanager.yml
+
+if you want to create new alerts or delete the olds ones then change /salt/prometheus/rules_prometheus.yml
+(quick tips: verify your expr on your prometheus website)
