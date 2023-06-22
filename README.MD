@@ -7,10 +7,14 @@ both of them are the configuration files
 minion_id is the id the minion will have, so you better change for your comfort
 without config, the minions will search the master trough ssh so change the line where you can see master : salt to master : <salt master IP>
 
+state : program deployed on the minions to configure them
+pillar : Vars accessible or not to the minions
+grains : specific information on each minion
+
 ###################### GENERAL SETUP #################################
 These files are incomplete for the whole setup or straight up useless for a completely local configuration so check them quickly (most of the time the names of the files speaks for themselves but still);
-you'll need to download wordpress and prometheus file;
-the sls may refuse your files if the version are different;
+you'll need to download wordpress and prometheus file with wget;
+the sls may refuse your files if the names  are different to what is wrote;
 
 
 The IPs of the machines need to be edited in the pillar "IPaddress";
@@ -68,5 +72,5 @@ Change the address inside IPaddress.sls inside the pillars, the state will add a
 each time prometheus.sls is triggered, the node_exporters targets are deleted then reconfigured each time,
 That's the way i found to avoid duplication in my targets who would stop my prometheus
 
-QUICK SUMMARY :
- the IP address in IPaddress.sls and haproxy.cnf should be the only ones that you need to change and the top.sls depending on what you need on which machine
+################## SALT QUICK SUMMARY :
+ the IP address in IPaddress.sls  should be the only ones that you need to change and the top.sls depending on what you need on which machine
