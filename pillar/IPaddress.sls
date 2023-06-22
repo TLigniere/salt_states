@@ -53,8 +53,10 @@ WebMachineIP:
 
   - name: WP-server
     IP: 127.0.0.1
+    id: 1
 
   - name: WP2-server
     IP: 127.0.0.1
+    id: 2
 
 
