@@ -258,7 +258,7 @@ $wpdb->add_database( array(
 
 function wpdb_connection_error($host, $port, $op, $tbl, $ds, $dbhname, $wpdb ) {
         $wpdb->add_database(array(
-                'host'     => '80.247.4.162',
+                'host'     => '127.0.0.1',
                 'user'     => 'wordpress',
                 'password' => '',
                 'name'     => 'wordpress',
