@@ -24,6 +24,7 @@ base:
     - nfs-client
     - NFS-syncs
     - wordpress_server_several_db
+
   "HAP-server":
     - haproxy
 
