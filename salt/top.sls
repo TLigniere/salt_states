@@ -19,7 +19,7 @@ base:
     - alertmanager
     - grafana
 
-  "WP********":
+  "WP*":
     - wordpress 
     - nfs-client
     - NFS-syncs
