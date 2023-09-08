@@ -5,7 +5,7 @@ xprometheus-g:
 
 prometheus-u:
   user.present:
-    - fullname: prometheus
+    - name: prometheus
     - shell: /bin/false
     - home: /home/prometheus
     - groups:
@@ -29,7 +29,7 @@ prometheus-u:
         
 /usr/local/bin/prometheus:
   file.managed:
-    - source: salt://prometheus/prometheus-2.44.0.linux-amd64/prometheus
+    - source: salt://prometheus/prometheus/prometheus
     - keep_source: False
     - user: prometheus
     - group: prometheus
@@ -37,13 +37,13 @@ prometheus-u:
     
 /usr/local/bin/promtool:
   file.managed:
-    - source: salt://prometheus/prometheus-2.44.0.linux-amd64/promtool
+    - source: salt://prometheus/prometheus/promtool
     - keep_source: False
     - mode: 744
 
 /usr/local/bin/prometheus.yml:
   file.managed:
-    - source: salt://prometheus/prometheus-2.44.0.linux-amd64/prometheus.yml 
+    - source: salt://prometheus/prometheus/prometheus.yml 
     - keep_source: False
     - mode: 744
 
