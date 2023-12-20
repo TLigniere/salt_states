@@ -1,10 +1,12 @@
+#Those directory were not meant to be shared, if you see anything that has an issue such as a public adress or a file empty, it's "normal", Github is just my way to share easily my salt files to my colleagues
+
 Download salt-master on this machine and salt-minion on the ones you want to control 
 Put all the files of this repo inside /srv
 
 You must edit the file in /etc/salt
 it will either be master or minion
 both of them are the configuration files
-minion_id is the id the minion will have, so you better change for your comfort
+minion_id is the id the minion will have, so you better change it for your comfort
 without config, the minions will search the master trough ssh so change the line where you can see master : salt to master : <salt master IP>
 
 state : program deployed on the minions to configure them
@@ -63,8 +65,8 @@ i don't mind sharing the gmail account that sends the alert, just don't fuck it 
 
 The file to change is salt/prometheus/alertmanager-0.25.0.linux-amd64/alertmanager.yml
 
-if you want to create new alerts or delete the olds ones then change /salt/prometheus/rules_prometheus.yml
-(quick tips: verify your expr on your prometheus website)
+If you want to create new alerts or delete the olds ones then change /salt/prometheus/rules_prometheus.yml
+
 
 ################# PROMETHEUS ################
 
@@ -72,6 +74,3 @@ Change the address inside IPaddress.sls inside the pillars, the state will add a
 each time prometheus.sls is triggered, the node_exporters targets are deleted then reconfigured each time,
 That's the way i found to avoid duplication in my targets who would stop my prometheus
 
-################## SALT QUICK SUMMARY :
-
- the IP address in IPaddress.sls, db-config.php (hyperdb)  and wp-config.php once the wordpress is downloaded locally should be the only ones that you need to change and the top.sls depending on what you need on which machine
