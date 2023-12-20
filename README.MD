@@ -14,6 +14,7 @@ pillar : Vars accessible or not to the minions
 grains : specific information on each minion
 
 ###################### GENERAL SETUP #################################
+
 These files are incomplete for the whole setup or straight up useless for a completely local configuration so check them quickly (most of the time the names of the files speaks for themselves but still);
 you'll need to download wordpress and prometheus file with wget;
 the sls may refuse your files if the names  are different to what is wrote;
