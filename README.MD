@@ -1,4 +1,5 @@
 #Those directory were not meant to be shared, if you see anything that has an issue such as a public adress or a file empty, it's "normal", Github is just my way to share easily my salt files to my colleagues
+#I may clean it in the future but it's not my priority at the moment
 
 Download salt-master on this machine and salt-minion on the ones you want to control 
 Put all the files of this repo inside /srv
