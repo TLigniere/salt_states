@@ -1,0 +1,2 @@
+bind:
+  -name: zone.local
