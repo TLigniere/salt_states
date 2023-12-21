@@ -1,0 +1,14 @@
+
+$TTL    604800
+@       IN      SOA     template. admin.template. (
+                              1         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@       IN      A       <Address DNS SERVER>
+@       IN      NS      template.
+;
+tftp     IN      A       <Address TFTP SERVER>
+www     IN      A       <Address WEB SERVER>
