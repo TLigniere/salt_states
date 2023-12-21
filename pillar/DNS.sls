@@ -1,2 +1,2 @@
 bind:
-  -name: zone.local
+  -name: template
