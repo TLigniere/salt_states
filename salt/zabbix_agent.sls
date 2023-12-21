@@ -9,14 +9,14 @@ install_zabbix-release.deb:
 
 configure_server_of_agent:
   file.blockreplace:
-    - marker_start: # Server=
-    - marker_end: ### Option: ListenPort
+    - marker_start: "# Server="
+    - marker_end: "### Option: ListenPort"
     - content: Server={{ pillar["MON-server"] }}
 
 configure_server_active_of_agent:
   file.blockreplace:
-    - marker_start: # ServerActive:
-    - marker_end: ### Option: Hostname
+    - marker_start: "# ServerActive:"
+    - marker_end: "### Option: Hostname"
     - content: ServerActive={{ pillar["MON-server"] }}
 
 agent_service:
